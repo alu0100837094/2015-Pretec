@@ -131,6 +131,10 @@ def get_registro(request):
     return render(request, 'formulario_registro.html', {'form' : form})
 
 
+# def submit_form(request):
+
+
+
 
 def fotoUsu(request):
     if request.method == 'POST':
