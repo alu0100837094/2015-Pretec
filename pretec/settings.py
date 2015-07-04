@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '*gn(8es33^1e1d=vrxpv-$isguedz$=z8c^)dnvzh^lf4$g^o*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -121,9 +121,9 @@ EMAIL_HOST_USER = 'pretcdsi@gmail.com'
 EMAIL_HOST_PASSWORD = 'pretecDSI'
 EMAIL_PORT = '587'
 
-if not DEBUG:
-    AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
-    STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+
+AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
+STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 
 # Parse database configuration from $DATABASE_URL
 import dj_database_url
