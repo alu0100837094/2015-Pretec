@@ -124,6 +124,7 @@ EMAIL_PORT = '587'
 
 AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
 STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+STATIC_URL = 'http://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
 
 # Parse database configuration from $DATABASE_URL
 import dj_database_url
@@ -139,8 +140,8 @@ ALLOWED_HOSTS = ['*']
 import os
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = 'staticfiles'
-STATIC_URL = '/static/'
-
+# STATIC_URL = '/static/'
+STATIC_URL = 'http://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
