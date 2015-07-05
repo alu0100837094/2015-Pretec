@@ -8,8 +8,9 @@ before_install:
 
 install:
   - pip install -r requirements.txt
-  # - pip install coveralls
+  - pip install coveralls
 
 script:
   - ./coverage_test.sh
-# after_success: coveralls
+  - coverage run --source=usuarios,microposts manage.py harvest
+after_success: coveralls
