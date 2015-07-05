@@ -13,6 +13,7 @@ from selenium import webdriver
 def initial_setup(server):
     call_command('syncdb', interactive=False, verbosity=0)
     call_command('flush', interactive=False, verbosity=0)
+    call_command('makemigrations', interactive=False, verbosity=0)
     call_command('migrate', interactive=False, verbosity=0)
     call_command('loaddata', 'all', verbosity=0)
     setup_test_environment()
