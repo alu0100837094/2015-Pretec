@@ -12,5 +12,5 @@ install:
 
 script:
   - ./coverage_test.sh
-  - coverage run --source=usuarios,microposts manage.py harvest
+  # - coverage run --source=usuarios,microposts manage.py harvest
 after_success: coveralls
