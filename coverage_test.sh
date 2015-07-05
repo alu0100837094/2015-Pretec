@@ -13,3 +13,4 @@ echo "Generating HTML report..."
 coverage html
 echo "Console report:"
 coverage report
+coveralls
