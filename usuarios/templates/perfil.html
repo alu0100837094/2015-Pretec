@@ -14,26 +14,28 @@
         <a href="/fotoUsu"><img src="../../static/uploads/{{foto_usu}}" style="height:30%%"></a>
       {% else %}
         <a href="/fotoUsu"><img src="../../static/uploads/defecto.jpg" style="height:30%%"></a>
-      {% endif %}      
+      {% endif %}
   {% else %}
     <div class="col-md-3" >
     {% if foto_usu %}
       <img src="../../static/uploads/{{foto_usu}}">
     {% else %}
+
       <img src="../../static/uploads/defecto.jpg">
-    {% endif %}      
+    {% endif %}
 			<!--<a href="/fotoUsu"><img src="../../static/imagenes/opcion5.jpg"></a>-->
-  {% endif %}   
+  {% endif %}
+
 		</div>
 
 		<div class="col-md-8">
-			<h2>{{pseudonimo}}</h2>
+			<h2 id="id_{{pseudonimo}}" >{{pseudonimo}}</h2>
       {% if messages %}
     <div class="row">
       <!-- <div class='col-sm-12'> -->
       <div class='col-sm-6 '>
         {% for message in messages %}
-          {% if message.tags == "success" %} <p class="alert alert-success">{{ message }}</p> {% endif %}
+          {% if message.tags == "success" %} <p  id="success" class="alert alert-success">{{ message }}</p> {% endif %}
           {% if message.tags == "error" %} <p class="alert alert-danger">{{ message }}</p> {% endif %}
         {% endfor %}
       </div>
@@ -47,13 +49,13 @@
             </select>
         </div>
         {% if pseudonimo == logueado %}
-        
+
         {% else %}
-          <button type="submit" class="btn btn-primary" id="btn_seguir">Seguir</button>
+          <button id="btn_seguir" type="submit" class="btn btn-primary" >Seguir</button>
         {% endif %}
-        
-        
-          
+
+
+
       </form>
     </div>
 		</div>
@@ -64,30 +66,34 @@
 
 	<div class="row">
 		<div class="col-md-3" id="info_perfil">
-			<a href="/seguidores"><label>Seguidores: {{seguidores}}</label></a><br>
-			<a href="/siguiendo"><label>Sigues: {{sigue}}</label></a><br>
+			<a id="seguidores" href="/seguidores"><label>Seguidores: {{seguidores}}</label></a><br>
+			<a id="siguiendo" href="/siguiendo"><label>Sigues: {{sigue}}</label></a><br>
 			<label>Posts: {{posts}}</label><br>
 
 		</div>
 
 		<div class="col-md-7">
     {% if borrar %}
-     <div id="post_borrado">
-      <p style="color:red"> Post eliminado correctamente </p>
+
+    <div >
+      <p id="content" style="color:red">Post eliminado correctamente</p>
+
     </div>
     {% endif %}
 			{% for item in user_data %}
 				<h2>{{item.titulo}}</h2>
 				<p>{{item.texto}}</p>
+
         {% if pseudonimo == logueado %}
-          <p style="display:none">Id del micropost {{item.id}}</p>
-          <a href = "/editar_post/{{item.id}}"> <button class="btn-info btn btn-xs"> Editar </button></a>
-          <a href = "/mi_perfil/delete/{{item.id}}"> <button class="btn-info btn btn-xs btn-danger"> Eliminar </button></a>
+          <p id="id_post" style="display:none">{{item.id}}</p>
+          <a href = "/editar_post/{{item.id}}"> <button id="Editar_post" class="btn-info btn btn-xs"> Editar </button></a>
+          <a href = "/mi_perfil/delete/{{item.id}}"> <button id="Eliminar_post" class="btn-info btn btn-xs btn-danger"> Eliminar </button></a>
           <p class="pull-right list-inline">{{item.fecha}}</p>
           <br>
           <hr>
         {% endif %}
-        
+
+
 			{% endfor %}
 		</div>
 

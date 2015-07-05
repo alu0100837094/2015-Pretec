@@ -38,7 +38,9 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'usuarios',
+    'lettuce.django',
     'bootstrap3',
+    'django_coverage',
     'microposts',
     'bootstrap3_datetime',
 )

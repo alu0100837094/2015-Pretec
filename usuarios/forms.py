@@ -28,6 +28,7 @@ class LoginForm(forms.Form):
     pseudonimo = forms.CharField(label= 'Pseudonimo', max_length='20', min_length='5')
     password = forms.CharField(label='Contrasena', widget=forms.PasswordInput)
 
+
 class EditNameForm(forms.Form):
     nombre = forms.CharField(label='Nombre', max_length=30, min_length=2)
     apellidos = forms.CharField(label = 'Apellidos', max_length = 50)
@@ -45,7 +46,7 @@ class EditPasswordForm(forms.Form):
 
 
 class BuscarPost(forms.Form):
-    busqueda = forms.CharField(label='Titutlo del post', max_length=100, min_length=2)
+    busqueda = forms.CharField(label='Titulo del post', max_length=100, min_length=2)
 
 class BuscarUsuario(forms.Form):
     busquedaUsu = forms.CharField(label='Nombre de usuario', max_length=50, min_length=2)
